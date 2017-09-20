@@ -40,6 +40,7 @@
 
 void setup()
 {
+  background(0);
 	size(400,500);
   noLoop();
 }
@@ -61,20 +62,71 @@ void mousePressed()
 class Die //models one single dice cube
 {
 	int myX, myY;
+  int dNum;
   //variable declarations here
 	Die(int x, int y) //constructor
 	{
+    roll();
 		myX=x;
     myY=y;
 	}
   
 	void roll()
 	{
+    dNum=(int)(Math.random()*6);
 		
 	}
 	void show()
 	{
-    fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    fill((int)(Math.random()*250)+6,(int)(Math.random()*250)+6,(int)(Math.random()*250)+6);
 		rect(myX,myY,40,40,5);
+    noStroke();
+    if (dNum==0)
+    {
+      fill(255);
+      ellipse(myX+20,myY+20,10,10);
+    }
+    if(dNum==1)
+    {
+      fill(255);
+      ellipse(myX+10,myY+30,10,10);
+      ellipse(myX+30,myY+10,10,10);
+    }
+    if(dNum==2)
+    {
+      fill(255);
+      ellipse(myX+20,myY+20,10,10);
+      ellipse(myX+7.5,myY+7.5,10,10);
+      ellipse(myX+32.5,myY+32.5,10,10);
+    }
+    if(dNum==3)
+    {
+      fill(255);
+      ellipse(myX+7.5,myY+7.5,10,10);
+      ellipse(myX+32.5,myY+32.5,10,10);
+      ellipse(myX+32.5,myY+7.5,10,10);
+      ellipse(myX+7.5,myY+32.5,10,10);
+    }
+    if(dNum==4)
+    {
+      fill(255);
+      ellipse(myX+7.5,myY+7.5,10,10);
+      ellipse(myX+32.5,myY+32.5,10,10);
+      ellipse(myX+32.5,myY+7.5,10,10);
+      ellipse(myX+7.5,myY+32.5,10,10);
+      ellipse(myX+20,myY+20,10,10);
+    }
+    if(dNum==5)
+    {
+      fill(255);
+      ellipse(myX+7.5,myY+7.5,10,10);
+      ellipse(myX+32.5,myY+32.5,10,10);
+      ellipse(myX+32.5,myY+7.5,10,10);
+      ellipse(myX+7.5,myY+32.5,10,10);
+      ellipse(myX+7.5,myY+20,10,10);
+      ellipse(myX+32.5,myY+20,10,10);
+    }
+    stroke(255);
+    text("Sum of the dice: " + dNum,50,450);
 	}
 }
