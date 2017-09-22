@@ -84,6 +84,7 @@ class Die //models one single dice cube
 	void roll()
 	{
     dNum=(int)(Math.random()*6)+1;
+    
 	}
 	void show()
 	{
